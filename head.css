@@ -1,0 +1,47 @@
+head, 
+head * {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	background: white;
+}
+
+head meta {
+	display: inline-flex;
+	min-width: 100px;
+	width: min-content;
+	height: fit-content;
+	background: crimson;
+	border: 1px dotted black;
+	font-size: 1rem;
+}
+
+ head meta:before{
+	text-transform: uppercase;
+	content: attr(charset) attr(name) attr(property) attr(http-equiv) attr(itemprop);
+	color: white;
+	font-size: .55rem;
+}
+head meta:after{
+	content: attr(content);
+	color: blueviolet;
+}
+
+head link{
+	display: inline-flex;
+	width: min-content;
+	height: fit-content;
+	background: yellowgreen;
+	border: 1px dotted black;
+	font-size: 1rem;
+	pointer-events: all;
+}
+
+link:before{
+	content: attr(rel);
+	color:aqua;
+}
+
