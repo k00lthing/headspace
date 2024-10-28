@@ -1,47 +1,134 @@
-head, 
+head {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: .5rem;
+	margin-bottom: 1rem;
+	z-index: 999999;
+	background-color: white;
+}
+
 head * {
 	display: block;
 	position: relative;
 	width: 100%;
 	height: auto;
-	padding: 1rem;
-	margin-bottom: 1rem;
-	background: white;
+}
+
+head *::before {
+	text-transform: uppercase;
+	font-size: small;
+
+}
+
+head *[blocking]{
+	border: 1px solid red;
+}
+
+head *[disabled]{
+	opacity: .25;
+}
+
+head a {
+	max-width: fit-content;
+	line-height: 1;
+}
+
+head title{
+	font-weight: bold;
+	font-size: 2rem;
+	color: black;
 }
 
 head meta {
 	display: inline-flex;
-	min-width: 100px;
+	align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem;
+	min-width: fit-content;
 	width: min-content;
 	height: fit-content;
-	background: crimson;
-	border: 1px dotted black;
-	font-size: 1rem;
+	border: 1px dotted dimgray;
+	line-height: 1;
+	margin: .5rem;
+	padding: .25rem;
 }
 
  head meta:before{
-	text-transform: uppercase;
-	content: attr(charset) attr(name) attr(property) attr(http-equiv) attr(itemprop);
-	color: white;
-	font-size: .55rem;
+	content: "Meta: " attr(charset) attr(name) attr(property) attr(http-equiv) attr(itemprop);
+	color: dimgray;
+	line-height: 1;
 }
 head meta:after{
 	content: attr(content);
-	color: blueviolet;
+	line-height: 1;
+	color: grey;
 }
 
 head link{
 	display: inline-flex;
+	align-items: baseline;
+    justify-content: space-evenly;
+    gap: .5rem;
+	min-width: fit-content;
 	width: min-content;
 	height: fit-content;
-	background: yellowgreen;
-	border: 1px dotted black;
-	font-size: 1rem;
+	border: 1px solid grey;
+	margin: .5rem;
+	padding: .25rem;
 	pointer-events: all;
 }
 
+
+
 link:before{
-	content: attr(rel);
-	color:aqua;
+	content: "Resource: " attr(crossorigin) " " attr(referrerpolicy) " " attr(rel) " " attr(as) " " attr(type);
+	color:black;
 }
 
+link:after{
+	content: attr(title) " " attr(media) " " attr(sizes) " " attr(imagesizes);
+	color:black;
+}
+head style, head script {
+	width: fit-content;
+	max-width: 100%;
+	height: auto;
+	font-family: monospace;
+	padding: 1rem;
+	background-color: whitesmoke;
+	color: gray;
+	display: inline-flex;
+	gap: .5rem;
+	overflow-wrap: break-word;
+	overflow: hidden;
+	margin: .5rem;
+}
+
+
+
+style:before{
+	content: "Styles: " attr(type) " " attr(title) " " attr(media) " ";
+}
+
+head script::before{
+	content: "Script: " attr(type) " " attr(attributionsrc) " ";
+}
+head script[defer]{
+	border: 1px dashed dimgray;
+}
+head script[defer]::after{
+	content: "deferred";
+}
+
+head script[async]{
+	box-shadow:
+	5px 5px 0 0 white,
+	10px 10px 0 0 whitesmoke;
+
+}
+
+head script[async]::after{
+	content: "asynchronous";
+}
